@@ -7,31 +7,26 @@
         </p>
       </header>
         <div class="card=content">
-          <div class="content">
+          <div class="mx-5 pb-4  content">
             <p><span class="has-text-weight-bold">
-              <strong>Calories:</strong>
-              <%= entry.calories %>
+              <p><strong><%= entry.calories %></strong> calories:</p>
             </span>
             </p>
 
             <p><span class="has-text-weight-bold">
-              <strong>Grams of proteins:</strong>
-              <%= entry.proteins %>
+              <p><strong><%= entry.proteins %></strong> grams of proteins</p>
             </span>
             </p>
 
             <p><span class="has-text-weight-bold">
-              <strong>Grams of carbohydrates:</strong>
-              <%= entry.carbohydrates %>
+              <p><strong><%= entry.carbohydrates %></strong> grams of carbohydrates</p>
             </span>
             </p>
-
             <p><span class="has-text-weight-bold">
-              <strong>Grams of fats:</strong>
-              <%= entry.fats %>
+              <p> <strong><%= entry.fats %></strong> grams of fats</p>
             </span>
             </p>
-            <p class="italic">Logged <%= time_ago_in_words(entry.created_at) %></p>
+            <p class="italic">Logged <%= time_ago_in_words(entry.created_at) %> ago</p>
           </div>  
         </div>
     </div>
