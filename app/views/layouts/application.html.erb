@@ -12,9 +12,22 @@
 </head>
 
 <body>
-  <div class="container">
-    <%= yield %>
-  </div>
+  <%= render "shared/header" %>
+    <% if notice.present? %>
+      <div class="notification is-link is-light">
+        <%= notice %>
+      </div>
+      <% end %>
+
+        <% if alert.present? %>
+          <div class="notification is-link is-light">
+            <%= alert %>
+          </div>
+          <% end %>
+
+            <div class="container">
+              <%= yield %>
+            </div>
 </body>
 
 </html>

@@ -2,9 +2,16 @@
 
 <%= render @entry %>
 
-<div>
-  <%= link_to "Edit this entry", edit_entry_path(@entry) %> |
-  <%= link_to "Back to entries", entries_path %>
+<div class="card-footer">
+    <div class="card-footer-item">
+      <%= link_to "Back", entries_path %>
+    </div>
 
-  <%= button_to "Destroy this entry", @entry, method: :delete %>
+    <div class="card-footer-item">
+    <%= link_to "Edit", edit_entry_path(@entry) %> 
+    </div>
+    
+    <div class="card-footer-item">
+    <%= button_to "Delete", @entry, method: :delete %>
+    </div>
 </div>

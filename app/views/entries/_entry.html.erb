@@ -1,27 +1,39 @@
-<div id="<%= dom_id entry %>">
-  <p>
-    <strong>Meal type:</strong>
-    <%= entry.meal_type %>
-  </p>
+<div class="columns mt-6 is-centered" id="<%= dom_id entry %>">
+  <div class="column is-one-quarter">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+            <%= entry.meal_type %>
+        </p>
+      </header>
+        <div class="card=content">
+          <div class="content">
+            <p><span class="has-text-weight-bold">
+              <strong>Calories:</strong>
+              <%= entry.calories %>
+            </span>
+            </p>
 
-  <p>
-    <strong>Calories:</strong>
-    <%= entry.calories %>
-  </p>
+            <p><span class="has-text-weight-bold">
+              <strong>Grams of proteins:</strong>
+              <%= entry.proteins %>
+            </span>
+            </p>
 
-  <p>
-    <strong>Proteins:</strong>
-    <%= entry.proteins %>
-  </p>
+            <p><span class="has-text-weight-bold">
+              <strong>Grams of carbohydrates:</strong>
+              <%= entry.carbohydrates %>
+            </span>
+            </p>
 
-  <p>
-    <strong>Carbohydrates:</strong>
-    <%= entry.carbohydrates %>
-  </p>
-
-  <p>
-    <strong>Fats:</strong>
-    <%= entry.fats %>
-  </p>
-
+            <p><span class="has-text-weight-bold">
+              <strong>Grams of fats:</strong>
+              <%= entry.fats %>
+            </span>
+            </p>
+            <p class="italic">Logged <%= time_ago_in_words(entry.created_at) %></p>
+          </div>  
+        </div>
+    </div>
+  </div>  
 </div>
