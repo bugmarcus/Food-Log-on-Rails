@@ -34,7 +34,7 @@ class EntriesTest < ApplicationSystemTestCase
     fill_in "Fats", with: @entry.fats
     fill_in "Meal type", with: @entry.meal_type
     fill_in "Proteins", with: @entry.proteins
-    click_on "Update Entry"
+    click_on "Update"
 
     assert_text "Entry was successfully updated"
     click_on "Back"

@@ -1,18 +1,45 @@
 <% content_for :title do %>
-  Foodlog &ndash; <%= DateTime.now %>
+  Foodlog &ndash; <%= DateTime.now.strftime('%B %e, %Y') %>
 <% end %>
 
 <p style="color: green"><%= notice %></p>
 
-<h1>Entries</h1>
-
-<div id="entries">
+<div id="entries" class="columns is-multiline is-centered">
   <% @entries.each do |entry| %>
-    <%= render entry %>
-    <p>
-      <%= link_to "Show this entry", entry %>
-    </p>
+    <div class="column is-one-third">
+      <div class="card">
+        <div class="card-content">
+          <nav class="panel is-link">
+            <p class="panel-heading">
+              <%= entry.meal_type %>
+            </p>
+
+            <div class="panel-block">
+              Calories: <%= entry.calories %>
+            </div>
+
+            <div class="panel-block">
+              Proteins: <%= entry.proteins %>
+            </div>
+
+            <div class="panel-block">
+              Carbohydrates: <%= entry.carbohydrates %>
+            </div>
+
+            <div class="panel-block">
+              Fats: <%= entry.fats %>
+            </div>
+          </nav>
+
+          <div>
+            <p style="font-style: italic;">Logged <%= time_ago_in_words(entry.created_at) %> ago</p>
+          </div>
+
+          <div class="has-text-centered mt-2">
+            <%= link_to "Show details", entry, class: "button is-primary is-small" %>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>
-
-<%= link_to "New Entry", new_entry_path %>

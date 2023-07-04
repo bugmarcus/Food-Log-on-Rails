@@ -1,10 +1,63 @@
-<h1>Editing entry</h1>
+<% content_for :title do %>
+  <%= @entry.meal_type %> &ndash; <%= DateTime.now.strftime('%B %e, %Y') %>
+<% end %>
 
-<%= render "form", entry: @entry %>
-
-<br>
-
-<div class="card-footer">
-  <%= link_to "Show this entry", @entry %> |
-  <%= link_to "Back to entries", entries_path %>
+<div class="columns mt-6 is-centered">
+  <div class="column is-mobile">
+    <div class="card">
+      <header class="card-header">
+        <p class="is-size-3 card-header-title has-text-weight-bold mb-3 is-centered">Editing <%= @entry.meal_type %></p>
+      </header>
+      <div class="card-content">
+        <%= form_with model: @entry, url: entry_path(@entry), method: :patch do |form| %>
+          <div class="content">
+            <div class="field">
+              <label class="label">Meal Type</label>
+              <div class="control">
+                <%= form.text_field :meal_type, class: "input" %>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Calories</label>
+              <div class="control">
+                <%= form.number_field :calories, class: "input" %>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Proteins</label>
+              <div class="control">
+                <%= form.number_field :proteins, class: "input" %>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Carbohydrates</label>
+              <div class="control">
+                <%= form.number_field :carbohydrates, class: "input" %>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Fats</label>
+              <div class="control">
+                <%= form.number_field :fats, class: "input" %>
+              </div>
+            </div>
+            
+            <div class="field is-grouped is-grouped-centered">
+              <div class="control">
+                <%= form.submit "Save", class: "button is-success" %>
+              </div>
+              <div class="control">
+                <%= link_to "Cancel", entries_path, class: "button is-danger" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <footer class="card-footer has-text-centered">
+        <div class="buttons is-centered">
+          <%= link_to "Back", entries_path, class: "button is-primary" %>
+        </div>
+      </footer>
+    </div>
+  </div>
 </div>

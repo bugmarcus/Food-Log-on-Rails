@@ -1,17 +1,21 @@
 <p style="color: green"><%= notice %></p>
 
+<% content_for :title do %>
+  <%= @entry.meal_type %> &ndash; <%= DateTime.now.strftime('%B %e, %Y') %>
+<% end %>
+
+
 <%= render @entry %>
+<div class="columns mt-6 is-centered has-text-centered">
+  <div class="columns card-footer is-centered">
+    <div class="buttons">
+      <%= link_to "Back", entries_path, class: "button is-primary" %>
 
-<div class="card-footer">
-    <div class="card-footer-item">
-      <%= link_to "Back", entries_path %>
-    </div>
+      <%= link_to edit_entry_path(@entry), class: "button is-primary" do %>
+        Edit
+      <% end %>
 
-    <div class="card-footer-item">
-    <%= link_to "Edit", edit_entry_path(@entry) %> 
+      <%= button_to "Delete", @entry, method: :delete, class: "button is-danger" %>
     </div>
-    
-    <div class="card-footer-item">
-    <%= button_to "Delete", @entry, method: :delete %>
-    </div>
+  </div>
 </div>
